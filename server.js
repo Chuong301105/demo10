@@ -8,10 +8,11 @@ const bcrypt = require('bcrypt'); // Import bcrypt để mã hóa mật khẩu
 const mysql = require('mysql2');
 // Tạo kết nối đến cơ sở dữ liệu MySQL bằng biến môi trường
 const db = mysql.createConnection({
-    host: process.env.DB_HOST, // Đọc biến môi trường DB_HOST
-    user: process.env.DB_USER, // Đọc biến môi trường DB_USER
-    password: process.env.DB_PASS, // Đọc biến môi trường DB_PASS
-    database: process.env.DB_NAME // Đọc biến môi trường DB_NAME
+    host: process.env.DB_HOST || 'localhost',   // Thay bằng host của bạn
+    user: process.env.DB_USER || 'root',        // Thay bằng username của bạn
+    password: process.env.DB_PASS || 'Nhcdz123#',    // Thay bằng password của bạn
+    database: process.env.DB_NAME || 'petcare_db',// Thay bằng tên cơ sở dữ liệu của bạn
+    port: 3306 // hoặc port khác nếu bạn dùng port đặc biệt
 });
 
 // Kiểm tra kết nối
